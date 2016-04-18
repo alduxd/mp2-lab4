@@ -7,12 +7,9 @@ void Polinom::Parser( string s_) {
 	int length = s.length();
 	int i = 0, coeff_ = 0, dx = 0, dy = 0, dz = 0,deg_=0;
 	string co;
-
+	
 	if (s[0] == '+')
-	{
-		for (int j = 0; j < length - 1; j++) { s[j] = s[j + 1]; }
-		s[length] = '\0';
-	}
+		s.erase(0, 1);
 
 	if ((s[0] == '-') && ((s[1] == 'x') || (s[1] == 'y') || (s[1] == 'z')))
 	{
@@ -38,7 +35,6 @@ void Polinom::Parser( string s_) {
 
 	if (isdigit(s[0]))
 	{
-
 		while ((s[i])!='\0')
 		{
 			co = co + s[i];
@@ -47,13 +43,13 @@ void Polinom::Parser( string s_) {
 		istringstream(co) >> coeff_;
 	}
 
-	/////////////
 	co.clear();
 	length = s.length();
 	i = 0;
 	while (i < length)
 	{
-		if ((s[i] == 'x') && (s[i + 1] == '^')) {
+		if ((s[i] == 'x') && (s[i + 1] == '^')) 
+		{
 			int t = i+2;
 			while (isdigit(s[t]))
 			{
@@ -66,7 +62,8 @@ void Polinom::Parser( string s_) {
 			co.clear();
 		}
 		if ((s[i] == 'x') && (s[i + 1] != '^')) dx = 1;
-		if ((s[i] == 'y') && (s[i + 1] == '^')) {
+		if ((s[i] == 'y') && (s[i + 1] == '^')) 
+		{
 			int t = i + 2;
 			while (isdigit(s[t]))
 			{
@@ -79,7 +76,8 @@ void Polinom::Parser( string s_) {
 			co.clear();
 		}
 		if ((s[i] == 'y') && (s[i + 1] != '^')) dy = 1;
-		if ((s[i] == 'z') && (s[i + 1] == '^')) {
+		if ((s[i] == 'z') && (s[i + 1] == '^')) 
+		{
 			int t = i + 2;
 			while (isdigit(s[t]))
 			{

@@ -27,20 +27,25 @@ public:
 
 		in>>input;
 		length = input.length();
-		for (int j = 0; j < length; j++) {
+		for (int j = 0; j < length; j++) 
+		{
 			if ((input[j] >= 'А') && (input[j] <= 'я')) throw ("Error! Polinon contain wrong symbol");
-			if ((input[j] >= 'A') && (input[j] <= 'w')) {
+			if ((input[j] >= 'A') && (input[j] <= 'w')) 
+			{
 				if ((input[j] == '^') && (!isdigit(input[j + 1]))) throw ("Error! Wrong input");
 				else continue;
-				throw ("2Error! Polinon contain wrong symbol");
+				throw ("Error! Polinon contain wrong symbol");
 			} 
 		}
 
-		while (!input.empty()) {
-			if (input[0] == '-') {
+		while (!input.empty()) 
+		{
+			if (input[0] == '-') 
+			{
 				i = 1;
 				monom = "-";
-				while ((input[i] != '\0')) {
+				while ((input[i] != '\0')) 
+				{
 					if (input[i] == '+') break;
 					if (input[i] == '-') break;
 					monom += input[i];	
@@ -51,10 +56,12 @@ public:
 				input.erase(pos, monom.size());
 				monom.clear();
 			}
-			else if (input[0] == '+') {
+			else if (input[0] == '+') 
+			{
 					i = 1;
 					monom = "+";
-					while ((input[i] != '\0')) {
+					while ((input[i] != '\0')) 
+					{
 						if (input[i] == '+') break;
 						if (input[i] == '-') break;
 						monom += input[i];
@@ -65,8 +72,10 @@ public:
 					input.erase(pos, monom.size());
 					monom.clear();
 				}
-				else {
-					while ((input[i] != '\0')) {
+				else 
+				{
+					while ((input[i] != '\0')) 
+					{
 						if (input[i] == '+') break;
 						if (input[i] == '-') break;
 						monom += input[i];
@@ -144,7 +153,8 @@ public:
 		}
 		if (t->GetCoeff()==0) return out;
 		else if (t->GetDegree()==0) out<<t->GetCoeff();
-			 else {
+			 else 
+			 {
 			 	 if ((t->GetCoeff()) == -1)	out << "-";
 				 else if ((t->GetCoeff()) != 1)	out << t->GetCoeff();
 
