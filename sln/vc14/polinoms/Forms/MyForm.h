@@ -113,7 +113,7 @@ namespace Forms {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(12, 215);
+			this->label3->Location = System::Drawing::Point(12, 208);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(62, 13);
 			this->label3->TabIndex = 4;
@@ -121,14 +121,14 @@ namespace Forms {
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(22, 231);
+			this->textBox3->Location = System::Drawing::Point(22, 224);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(300, 20);
 			this->textBox3->TabIndex = 5;
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(239, 288);
+			this->button1->Location = System::Drawing::Point(239, 264);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(83, 28);
 			this->button1->TabIndex = 6;
@@ -140,30 +140,31 @@ namespace Forms {
 			// 
 			this->button2->Location = System::Drawing::Point(22, 158);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(83, 46);
+			this->button2->Size = System::Drawing::Size(40, 40);
 			this->button2->TabIndex = 7;
-			this->button2->Text = L"Сложить";
+			this->button2->Text = L"+";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(239, 158);
+			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10));
+			this->button3->Location = System::Drawing::Point(142, 158);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(83, 46);
+			this->button3->Size = System::Drawing::Size(40, 40);
 			this->button3->TabIndex = 8;
-			this->button3->Text = L"Умножить";
+			this->button3->Text = L"*";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
 			// button4
 			// 
-			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F));
-			this->button4->Location = System::Drawing::Point(131, 158);
+			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10));
+			this->button4->Location = System::Drawing::Point(82, 158);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(83, 46);
+			this->button4->Size = System::Drawing::Size(40, 40);
 			this->button4->TabIndex = 9;
-			this->button4->Text = L"Вычесть";
+			this->button4->Text = L"-";
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			// 
@@ -180,7 +181,7 @@ namespace Forms {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(347, 332);
+			this->ClientSize = System::Drawing::Size(347, 304);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);

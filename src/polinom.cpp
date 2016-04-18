@@ -53,11 +53,44 @@ void Polinom::Parser( string s_) {
 	i = 0;
 	while (i < length)
 	{
-		if ((s[i] == 'x') && (s[i + 1] == '^')) { co = s[i + 2];  istringstream(co) >> dx; }
+		if ((s[i] == 'x') && (s[i + 1] == '^')) {
+			int t = i+2;
+			while (isdigit(s[t]))
+			{
+				co += s[t++];
+				if (t == length)
+					break;
+			} 
+			istringstream(co) >> dx;
+			if (dy > 9) throw ("Degree must be <10");
+			co.clear();
+		}
 		if ((s[i] == 'x') && (s[i + 1] != '^')) dx = 1;
-		if ((s[i] == 'y') && (s[i + 1] == '^')) { co = s[i + 2]; istringstream(co) >> dy; }
+		if ((s[i] == 'y') && (s[i + 1] == '^')) {
+			int t = i + 2;
+			while (isdigit(s[t]))
+			{
+				co += s[t++];
+				if (t == length)
+					break;
+			}
+			istringstream(co) >> dy;
+			if (dy > 9) throw ("Degree must be <10");
+			co.clear();
+		}
 		if ((s[i] == 'y') && (s[i + 1] != '^')) dy = 1;
-		if ((s[i] == 'z') && (s[i + 1] == '^')) { co = s[i + 2]; istringstream(co) >> dz; }
+		if ((s[i] == 'z') && (s[i + 1] == '^')) {
+			int t = i + 2;
+			while (isdigit(s[t]))
+			{
+				co += s[t++];
+				if (t == length)
+					break;
+			}
+			istringstream(co) >> dz;
+			if (dz > 9) throw ("Degree must be <10");
+			co.clear();
+		}
 		if ((s[i] == 'z') && (s[i + 1] != '^')) dz = 1;
 		i++;
 	}

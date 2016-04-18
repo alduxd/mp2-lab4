@@ -22,36 +22,39 @@ public:
 	friend istream& operator>>(istream &in, Polinom &p)
 	{
 		string input, monom;
-		int deg_ = 0, coef_ = 0, i = 0;
+		int deg_ = 0, coef_ = 0, i = 0, length;
 		Polinom tmp;
-			setlocale(LC_ALL, "Russian");
-			cout << "Enter the polinom: ";
-			in>>input;
 
-			while (!input.empty())
-			{
-				if (input[0] == '-')
-				{
-					i = 1;
-					monom = "-";
-					while ((input[i] != '\0'))
-					{
-						if (input[i] == '+') break;
-						if (input[i] == '-') break;
-						monom += input[i];
-						i++;
-					}
-					p.Parser(monom);
-					int pos = input.find(monom);
-					input.erase(pos, monom.size());
-					monom.clear();
+		in>>input;
+		length = input.length();
+		for (int j = 0; j < length; j++) {
+			if ((input[j] >= 'А') && (input[j] <= 'я')) throw ("Error! Polinon contain wrong symbol");
+			if ((input[j] >= 'A') && (input[j] <= 'w')) {
+				if ((input[j] == '^') && (!isdigit(input[j + 1]))) throw ("Error! Wrong input");
+				else continue;
+				throw ("2Error! Polinon contain wrong symbol");
+			} 
+		}
+
+		while (!input.empty()) {
+			if (input[0] == '-') {
+				i = 1;
+				monom = "-";
+				while ((input[i] != '\0')) {
+					if (input[i] == '+') break;
+					if (input[i] == '-') break;
+					monom += input[i];	
+					i++;
 				}
-				else if (input[0] == '+')
-				{
+				p.Parser(monom);
+				int pos = input.find(monom);
+				input.erase(pos, monom.size());
+				monom.clear();
+			}
+			else if (input[0] == '+') {
 					i = 1;
 					monom = "+";
-					while ((input[i] != '\0'))
-					{
+					while ((input[i] != '\0')) {
 						if (input[i] == '+') break;
 						if (input[i] == '-') break;
 						monom += input[i];
@@ -62,10 +65,8 @@ public:
 					input.erase(pos, monom.size());
 					monom.clear();
 				}
-				else
-				{
-					while ((input[i] != '\0'))
-					{
+				else {
+					while ((input[i] != '\0')) {
 						if (input[i] == '+') break;
 						if (input[i] == '-') break;
 						monom += input[i];
@@ -77,8 +78,6 @@ public:
 					monom.clear();
 				}
 			}
-
-	
 		return in;
 	}
 
@@ -123,7 +122,7 @@ public:
 				if (t->GetCoeff() > 0) out << t->GetCoeff();
 				else out << t->GetCoeff();		
 				t=t->GetNext();
-				if (t->GetCoeff() > 0) out << "+"; //////
+				if (t->GetCoeff() > 0) out << "+"; 
 			}
 			else
 			{
@@ -140,7 +139,7 @@ public:
 				else if (t->GetDegree() % 10) out << "z^" << t->GetDegree() % 10 ;
 
 				t=t->GetNext();
-				if (t->GetCoeff() > 0) out << "+"; //////
+				if (t->GetCoeff() > 0) out << "+";
 			}
 		}
 		if (t->GetCoeff()==0) return out;
@@ -158,7 +157,7 @@ public:
 				if (t->GetDegree() % 10 == 1) out << "z";
 				else if (t->GetDegree() % 10) out << "z^" << t->GetDegree() % 10;
 
-				if (t->GetCoeff() > 0) out << "+"; //////
+				if (t->GetCoeff() > 0) out << "+";
 		}
 	return out;
 	}
